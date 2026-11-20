@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200" role="img" aria-label="DEXANGEL wordmark placeholder logo in bone-white with a red dripping underline.">
+  <defs>
+    <style>
+      .d { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Black", sans-serif; }
+      .s { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <text class="d" x="400" y="112" text-anchor="middle" font-size="96" letter-spacing="9" fill="#e8e2d9">DEXANGEL</text>
+
+  <!-- arterial underline with drips -->
+  <path fill="#c1121f" d="M118 130h564v9H118z
+    M188 139h16v22a8 8 0 0 1-16 0z
+    M318 139h12v34a6 6 0 0 1-12 0z
+    M456 139h18v20a9 9 0 0 1-18 0z
+    M602 139h13v42a6.5 6.5 0 0 1-13 0z"/>
+
+  <text class="s" x="400" y="186" text-anchor="middle" font-size="19" letter-spacing="11" fill="#a39d94">REVERSE HORROR · YOU ARE THE MONSTER</text>
+</svg>

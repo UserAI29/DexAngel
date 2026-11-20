@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Placeholder screenshot: three panicked human silhouettes in a doorway, flashlight beams shaking, one figure peeling away from the group.">
+  <defs>
+    <linearGradient id="s3bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151011"/>
+      <stop offset="1" stop-color="#070506"/>
+    </linearGradient>
+    <linearGradient id="s3beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9b0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="s3door" cx=".5" cy=".4" r=".7">
+      <stop offset="0" stop-color="#ffb703" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="s3vig" cx=".5" cy=".5" r=".7">
+      <stop offset=".36" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".92"/>
+    </radialGradient>
+    <filter id="s3noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="s3soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#s3bg)"/>
+
+  <!-- room shell -->
+  <polygon points="0,0 1600,0 1600,900 0,900" fill="#0d0a0b"/>
+  <rect x="0" y="700" width="1600" height="200" fill="#080607"/>
+  <path d="M0 700h1600" stroke="#1d1617" stroke-width="4"/>
+
+  <!-- doorway with warm light behind the group -->
+  <rect x="530" y="90" width="540" height="620" fill="#0a0708"/>
+  <rect x="565" y="130" width="470" height="580" fill="#1a1410"/>
+  <rect x="565" y="130" width="470" height="580" fill="url(#s3door)"/>
+  <path d="M530 90h540v620H530z" fill="none" stroke="#241b1d" stroke-width="10"/>
+
+  <!-- figure A: standing in the doorway -->
+  <g transform="translate(760 430)" fill="#050303">
+    <circle cx="0" cy="-160" r="42"/>
+    <path d="M-72 260c0-140 30-196 72-204 42 8 72 64 72 204z"/>
+  </g>
+  <!-- figure B: turning away -->
+  <g transform="translate(600 470) scale(.92)" fill="#050303">
+    <circle cx="0" cy="-160" r="40"/>
+    <path d="M-66 246c0-128 26-182 66-190 40 8 66 62 66 190z"/>
+  </g>
+  <!-- figure C: peeling off to the left (the straggler) -->
+  <g transform="translate(330 520) scale(1.02)" fill="#050303">
+    <circle cx="0" cy="-166" r="44"/>
+    <path d="M-74 250c0-134 30-192 74-200 44 8 74 66 74 200z"/>
+    <path d="M56 -60l86 74" stroke="#050303" stroke-width="34" stroke-linecap="round"/>
+  </g>
+
+  <!-- flashlight beams -->
+  <g>
+    <polygon points="420,540 900,880 640,900 380,570" fill="url(#s3beam)"/>
+    <ellipse cx="700" cy="880" rx="200" ry="44" fill="#ffb703" opacity=".16" filter="url(#s3soft)"/>
+    <polygon points="1010,520 1420,760 1230,830 970,560" fill="url(#s3beam)" opacity=".8"/>
+    <polygon points="300,640 130,860 340,880 350,660" fill="url(#s3beam)" opacity=".55"/>
+  </g>
+
+  <!-- the handheld torch -->
+  <rect x="405" y="524" width="46" height="26" rx="8" fill="#2c2426" transform="rotate(34 428 537)"/>
+
+  <!-- jitter lines around the heads -->
+  <g stroke="#e8e2d9" stroke-width="5" stroke-linecap="round" opacity=".55">
+    <path d="M840 210l34-18M852 250l40-6M846 300l34 14"/>
+    <path d="M660 250l-38-16M652 292l-42-4M664 336l-36 16"/>
+    <path d="M250 296l-40-20M240 344l-46-6M254 392l-40 18"/>
+  </g>
+
+  <!-- scribbled notes dropped on the floor -->
+  <g fill="#e8e2d9" opacity=".6" transform="rotate(-8 1180 790)">
+    <rect x="1120" y="750" width="150" height="96" rx="4"/>
+    <g stroke="#0a0708" stroke-width="6"><path d="M1140 780h110M1140 806h110M1140 832h74"/></g>
+  </g>
+
+  <rect width="1600" height="900" filter="url(#s3noise)" opacity=".1"/>
+  <rect width="1600" height="900" fill="url(#s3vig)"/>
+  <text x="1560" y="866" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="3" fill="#a39d94" opacity=".65">PLACEHOLDER 1600×900 · screenshot-03-panic</text>
+</svg>

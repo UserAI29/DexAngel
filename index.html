@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEXANGEL — Reverse-Horror Where YOU Are the Monster</title>
+<meta name="description" content="You are the monster. Plant disturbing evidence, farm human panic, and hunt in the sweet spot before they flee and call the police. A first-person reverse-horror PC game — wishlist DEXANGEL on Steam.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0708">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="[SITE_URL]">
+
+<!-- Favicon placeholder (swap for /favicon.ico + 16/32px variants before launch) -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DEXANGEL">
+<meta property="og:title" content="DEXANGEL — Reverse-Horror Where YOU Are the Monster">
+<meta property="og:description" content="They came to find the truth. You make sure no one leaves with it. Plant evidence, farm panic, hunt the sweet spot.">
+<!-- PRODUCTION: replace with absolute URL to a 1200x630 JPG/PNG (see ASSET CHECKLIST) -->
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DEXANGEL key art: the words DEXANGEL in bone-white over a decaying black corridor, arterial-red drip underneath.">
+<meta property="og:url" content="[SITE_URL]">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DEXANGEL — Reverse-Horror Where YOU Are the Monster">
+<meta name="twitter:description" content="You are not the victim. You are the monster. Plant evidence, farm panic, hunt the sweet spot.">
+<meta name="twitter:image" content="assets/og-image.png">
+<meta name="twitter:image:alt" content="DEXANGEL key art placeholder: title over a dark decaying corridor.">
+
+<!-- Fonts: swap + preconnect. Falls back to Impact / system grotesque when offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/styles.css?v=1.2">
+
+<script>document.documentElement.classList.replace('no-js','js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "DEXANGEL",
+  "description": "First-person reverse horror. You are the monster: plant disturbing evidence, drive human panic into the sweet spot, then lure, scare and feed before they flee and call the police.",
+  "genre": ["Horror", "Reverse horror", "Stealth"],
+  "gamePlatform": "PC (Steam)",
+  "playMode": "SinglePlayer",
+  "applicationCategory": "Game",
+  "url": "[STEAM_WISHLIST_URL]",
+  "image": "assets/og-image.png"
+}
+</script>
+
+<noscript>
+<style>
+  /* Without JS: show everything, keep the mobile menu usable. */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  @media (max-width: 899px) {
+    .nav__menu { display: flex !important; position: static !important; opacity: 1 !important;
+      transform: none !important; visibility: visible !important; flex-basis: 100%; flex-wrap: wrap;
+      background: transparent !important; padding: .5rem 0 0 !important; border: 0 !important; }
+    .nav__toggle { display: none !important; }
+  }
+</style>
+</noscript>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ FILM GRAIN / SCANLINES / VIGNETTE (decorative, pointer-transparent) ============ -->
+<div class="fx fx--grain" aria-hidden="true"></div>
+<div class="fx fx--scanlines" aria-hidden="true"></div>
+<div class="fx fx--vignette" aria-hidden="true"></div>
+
+<!-- ============ SVG SPRITE: dividers + icons (drawn in code, no external images) ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Dripping ceiling edge. Fills inherit `fill` from the <svg> that uses it;
+         the accent paths use currentColor so they can be tinted red. -->
+    <symbol id="i-drip" viewBox="0 0 1440 72">
+      <path d="M0 0h1440v15H0z
+        M64 15h18v22a9 9 0 0 1-18 0z
+        M186 15h10v14a5 5 0 0 1-10 0z
+        M302 15h26v34a13 13 0 0 1-26 0z
+        M431 15h12v17a6 6 0 0 1-12 0z
+        M556 15h20v26a10 10 0 0 1-20 0z
+        M697 15h30v42a15 15 0 0 1-30 0z
+        M838 15h10v12a5 5 0 0 1-10 0z
+        M958 15h16v21a8 8 0 0 1-16 0z
+        M1102 15h24v31a12 12 0 0 1-24 0z
+        M1229 15h12v16a6 6 0 0 1-12 0z
+        M1348 15h18v24a9 9 0 0 1-18 0z"/>
+      <path fill="currentColor" d="M612 15h6v39a3 3 0 0 1-6 0z
+        M1160 15h5v24a2.5 2.5 0 0 1-5 0z
+        M382 15h4v17a2 2 0 0 1-4 0z"/>
+    </symbol>
+
+    <!-- UI -->
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v14M6 12.5l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5l11 6.5-11 6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4zM16 9.5l4 5M20 9.5l-4 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4zM15.5 9a4.2 4.2 0 0 1 0 6M18 6.8a7.6 7.6 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+    <!-- Loop + feature icons -->
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M7.5 21v-5.5M11.5 21V9.2M15.5 21v-6.2M7.5 15.5c-2.2 0-3.6-1.6-3.6-3.9V7.2a1.6 1.6 0 0 1 3.2 0v3.6M11.5 9.2V5.6a1.6 1.6 0 0 1 3.2 0v3.6M15.5 14.8V9.6a1.6 1.6 0 0 1 3.2 0V16c0 3.2-1.7 5-4.4 5H7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6.2 5.8 12 5.8 21.5 12 21.5 12 17.8 18.2 12 18.2 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 1.8v4.4M12 17.8v4.4M1.8 12h4.4M17.8 12h4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-fang" viewBox="0 0 24 24"><path d="M2.8 7.5c3 9 15.4 9 18.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5.6 9.6l1.6 4.8 1.7-4.4 1.7 4.4 1.7-4.4 1.7 4.4 1.6-4.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pov" viewBox="0 0 24 24"><rect x="2.8" y="5" width="18.4" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.8 15.4l4.2-4.2 3 3 4-5.2 7.2 7.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.6" cy="9.4" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M1.8 13.5h3.6l2.1-6.6 3.2 11.4 2.7-8.2 1.8 3.4h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5v-4.9a6 6 0 0 1 12 0v4.9l1.8 2.7H4.2zM10 22.2h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.6 9.4a8.5 8.5 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M2.5 20.5h4.6v-4.6h4.6v-4.6h4.6V6.7h4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-crowd" viewBox="0 0 24 24"><circle cx="8" cy="8.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="8.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.6 19.5a5.6 5.6 0 0 1 10.8 0M10.6 19.5a5.6 5.6 0 0 1 10.8 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+
+    <!-- Jump-scare easter egg: abstract maw. Visual flicker only, never auto-triggered. -->
+    <symbol id="i-maw" viewBox="0 0 400 400">
+      <path fill="currentColor" d="M200 26c-63 0-113 37-123 98-7 40-2 81 15 118 18 43 60 93 108 93s90-50 108-93c17-37 22-78 15-118C313 63 263 26 200 26z"/>
+      <path fill="#060405" d="M104 144l74 24-28 30-46-18z"/>
+      <path fill="#060405" d="M296 144l-74 24 28 30 46-18z"/>
+      <path fill="#060405" d="M110 238c27 9 59 13 90 13s63-4 90-13c-7 46-46 86-90 86s-83-40-90-86z"/>
+      <g fill="#e8e2d9">
+        <path d="M124 246l17 36 15-32zM165 251l16 40 16-37zM204 253l16 42 16-42zM243 251l17 37 15-40zM279 246l15 33 17-35z"/>
+      </g>
+      <g fill="#c1121f">
+        <path d="M186 328h26l-7 44-11 16-8-18z" opacity=".92"/>
+        <path d="M130 312h15l-5 30-8 12-5-14z" opacity=".7"/>
+        <path d="M255 314h15l-6 32-8 11-5-15z" opacity=".7"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="site-nav">
+  <nav class="nav__inner" aria-label="Primary">
+    <a class="nav__brand" href="#top" aria-label="DEXANGEL — back to top">
+      <span class="nav__brand-mark">DEXANGEL</span>
+    </a>
+
+    <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav__toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="nav__toggle-text">Menu</span>
+    </button>
+
+    <ul class="nav__menu" id="nav-menu">
+      <li><a href="#premise">Premise</a></li>
+      <li><a href="#panic">Panic</a></li>
+      <li><a href="#hunt">Hunt</a></li>
+      <li><a href="#escalation">Escalation</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+
+    <div class="nav__end">
+      <!-- Easter egg: click the floor readout 5 times. -->
+      <button class="nav__floor" id="floor-btn" type="button" aria-label="FL. 13 — building floor indicator. Activate to move up a floor.">
+        FL.&nbsp;<span id="floor-num">13</span>
+      </button>
+      <a class="btn btn--primary btn--sm nav__cta" href="[STEAM_WISHLIST_URL]">Wishlist</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__media" aria-hidden="true">
+      <img class="hero__bg" src="assets/placeholder-hero.svg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow"><span>Reverse horror</span><span class="dot" aria-hidden="true"></span><span>First person</span><span class="dot" aria-hidden="true"></span><span>PC / Steam</span></p>
+
+      <h1 class="hero__title" id="hero-title"><span class="flicker" data-flicker>DEXANGEL</span></h1>
+
+      <p class="hero__tagline">They came to find the truth.<br>You make sure no one leaves with it.</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="[STEAM_WISHLIST_URL]">Wishlist now</a>
+        <a class="btn btn--ghost btn--lg" href="[YOUTUBE_TRAILER_URL]">
+          <svg class="btn__icon" aria-hidden="true" width="18" height="18"><use href="#i-play"/></svg>
+          Watch trailer
+        </a>
+      </div>
+
+      <p class="hero__meta">Wishlist on Steam — it decides how fast this building opens.</p>
+    </div>
+
+    <div class="hero__foot">
+      <!-- Sound toggle placeholder: no audio file is bundled. -->
+      <button class="hero__sound" id="sound-toggle" type="button" aria-pressed="false">
+        <svg class="hero__sound-icon" aria-hidden="true" width="16" height="16"><use href="#i-sound-off" id="sound-icon-use"/></svg>
+        <span id="sound-label">Sound: off</span>
+      </button>
+
+      <!-- Easter egg 2: an old handprint. Click it. -->
+      <button class="hero__relic" id="scare-trigger" type="button" aria-label="A handprint dried on the glass. Touch it.">
+        <svg aria-hidden="true" width="34" height="34"><use href="#i-hand"/></svg>
+      </button>
+
+      <a class="hero__scroll" href="#premise">
+        Descend
+        <svg aria-hidden="true" width="16" height="16"><use href="#i-down"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ 2. THE PREMISE ============ -->
+  <section class="section section--premise" id="premise" aria-labelledby="premise-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">01</span> The premise</p>
+
+      <h2 class="section-title reveal" id="premise-title">
+        In every horror game, <span class="t-bone">you run.</span><br>
+        In DexAngel, <span class="t-red">something is waiting for you.</span>
+      </h2>
+
+      <div class="premise__grid">
+        <div class="prose reveal">
+          <p class="lead">You are not the final girl. You are not the survivor with a flashlight and a bad plan. You are what the building turned into after everyone left.</p>
+
+          <p>Humans come inside anyway. Reporters. Investigators. Ghost-hunters with cameras, civilians with curiosity, security with something to prove. They enter your floors, your stairwells, your walls — and they start documenting.</p>
+
+          <p>Good. Let them take pictures. You don't chase them. You <strong>decorate for them.</strong> Bloody drag-marks that end at a sealed door. Handprints smeared across the ceiling. Torn fabric, feathers in the vents, scorch marks around the light switches, messages scratched where no one could reach. Call them aesthetics. Call them bait.</p>
+
+          <p>When they find your work, their personal panic climbs. Keep it high enough and they go jittery — paranoid, whispering, splitting off down dark hallways <em>alone</em>. Keep it below critical and nobody runs. That is your hunting window. Step out of the dark. Make a noise. Feed.</p>
+        </div>
+
+        <aside class="premise__aside reveal" aria-label="The rules of your building">
+          <p class="premise__pull">Your building.<br>Your prey.</p>
+          <ul class="rulelist">
+            <li><span class="rulelist__n">I.</span> You are never the victim here.</li>
+            <li><span class="rulelist__n">II.</span> Fear is a crop. Plant it.</li>
+            <li><span class="rulelist__n">III.</span> Too much fear and they call for help.</li>
+            <li><span class="rulelist__n">IV.</span> Help remembers everything.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg);--to:var(--bg-raised)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 3. THE PANIC SYSTEM (centerpiece) ============ -->
+  <section class="section section--panic" id="panic" data-zone="sweet" aria-labelledby="panic-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">02</span> The Evidence System</p>
+
+      <h2 class="section-title reveal" id="panic-title">
+        Panic is not your meter.<br><span class="t-amber">It's your harvest.</span>
+      </h2>
+
+      <p class="section-lede reveal">Humans carry their own Panic Meters. You never see a number — you watch it in how they move. Every trace you plant pushes them up. You decide how far.</p>
+
+      <div class="panelp reveal">
+        <div class="panelp__ghost" id="zone-ghost" aria-hidden="true">SWEET SPOT</div>
+
+        <div class="meter" id="meter">
+          <div class="meter__head">
+            <span class="meter__head-label">Panic level</span>
+            <span class="meter__head-hint">Drag — or use arrow keys</span>
+          </div>
+
+          <div class="meter__track" id="meter-track">
+            <div class="meter__zone" data-zone="calm" style="flex-basis:24%"><span>Calm</span></div>
+            <div class="meter__zone" data-zone="jittery" style="flex-basis:22%"><span>Jittery</span></div>
+            <div class="meter__zone" data-zone="sweet" style="flex-basis:26%"><span>Sweet spot</span></div>
+            <div class="meter__zone" data-zone="fleeing" style="flex-basis:16%"><span>Fleeing</span></div>
+            <div class="meter__zone" data-zone="police" style="flex-basis:12%"><span>Police</span></div>
+            <div class="meter__fill" aria-hidden="true"></div>
+            <div class="meter__handle" aria-hidden="true"><span class="meter__handle-blade"></span></div>
+            <input class="meter__range" id="meter-range" type="range" min="0" max="100" step="1" value="56"
+                   aria-label="Human panic level, 0 to 100"
+                   aria-describedby="readout-msg"
+                   aria-valuetext="Sweet spot — 56 percent">
+          </div>
+
+          <ol class="meter__labels" aria-hidden="true">
+            <li style="flex-basis:24%">0–23 · Calm</li>
+            <li style="flex-basis:22%">24–45 · Jittery</li>
+            <li class="is-sweet" style="flex-basis:26%">46–71 · Sweet spot</li>
+            <li style="flex-basis:16%">72–87 · Fleeing</li>
+            <li style="flex-basis:12%">88–100 · Police</li>
+          </ol>
+        </div>
+
+        <div class="readout" id="readout" data-zone="sweet">
+          <p class="readout__zone" id="readout-zone">Sweet spot</p>
+          <p class="readout__msg" id="readout-msg">Jittery. Paranoid. Split from the group. <strong>YOU MAY HUNT.</strong></p>
+          <p class="readout__hint" id="readout-hint">Noise lures work best right here. This is the win zone — the only place you're meant to feed.</p>
+        </div>
+      </div>
+
+      <div class="panic__cols">
+        <div class="reveal">
+          <h3 class="h-small t-bone">Low panic — they stay boring</h3>
+          <p>They keep the lights on. They stay in groups of four and complain about the smell. You could take one, but three witnesses are watching the door. Wait. Keep decorating.</p>
+        </div>
+        <div class="reveal">
+          <h3 class="h-small t-amber">Sweet spot — they volunteer</h3>
+          <p>They argue. They split up to "check on each other". One takes the stairwell alone. One stays behind with a flashlight that flickers. None of them will be missed down here.</p>
+        </div>
+        <div class="reveal">
+          <h3 class="h-small t-slate">Critical panic — they leave</h3>
+          <p>Doors. Stairs. Car keys. They bolt with your evidence clutched to their chests, and every one of them is now a witness with a story. Fail pressure starts the moment they reach the street.</p>
+        </div>
+      </div>
+
+      <p class="panic__foot reveal">Push past the line and the building empties itself. Then the sirens come — and sirens bring uniforms who <em>read your work for clues.</em></p>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg-raised);--to:var(--bg)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 4. THE HUNT LOOP ============ -->
+  <section class="section section--hunt" id="hunt" aria-labelledby="hunt-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">03</span> The hunt loop</p>
+      <h2 class="section-title reveal" id="hunt-title">Four moves. <span class="t-red">Then dinner.</span></h2>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">01</span>
+          <svg class="step__icon" aria-hidden="true" width="30" height="30"><use href="#i-hand"/></svg>
+          <h3 class="step__title">Plant traces</h3>
+          <p>Move unseen. Bleed the walls. Drag-marks, handprints, torn fabric, feathers, scorch marks, scratched messages. Choose <em>where</em> they get found — and by whom.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">02</span>
+          <svg class="step__icon" aria-hidden="true" width="30" height="30"><use href="#i-eye"/></svg>
+          <h3 class="step__title">Watch panic climb</h3>
+          <p>They discover your work. Personal panic rises. Voices get shorter, footsteps get faster, and somebody starts asking to leave.</p>
+        </li>
+        <li class="step step--sweet reveal">
+          <span class="step__n" aria-hidden="true">03</span>
+          <svg class="step__icon" aria-hidden="true" width="30" height="30"><use href="#i-crosshair"/></svg>
+          <h3 class="step__title">Hit the sweet spot</h3>
+          <p>High, not critical. Jittery, paranoid, split up. The group shatters and stragglers peel off down dark corridors. <strong>That is the win zone.</strong></p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">04</span>
+          <svg class="step__icon" aria-hidden="true" width="30" height="30"><use href="#i-fang"/></svg>
+          <h3 class="step__title">Lure, scare, feed</h3>
+          <p>Drop a noise where nobody should be. Stalk the jittery ones. Jump the dark. Eat — then leave new evidence for the next poor soul to find.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg);--to:var(--bg-raised)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 5. ESCALATION ============ -->
+  <section class="section section--escalation" id="escalation" aria-labelledby="escalation-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">04</span> Escalation</p>
+      <h2 class="section-title reveal" id="escalation-title">Every wave gets harder.<br><span class="t-red">So do they.</span></h2>
+
+      <ol class="timeline">
+        <li class="tl tl--lv reveal">
+          <div class="tl__node" aria-hidden="true"></div>
+          <div class="tl__body">
+            <p class="tl__tag">Level 01 — Quiet floor</p>
+            <h3 class="tl__title">Lone stragglers, generous timers</h3>
+            <p>A half-lit floor, a night caretaker, two curious neighbors. Learn the building. Learn what your traces do to a slow mind.</p>
+          </div>
+        </li>
+        <li class="tl tl--mid reveal">
+          <div class="tl__node" aria-hidden="true"></div>
+          <div class="tl__body">
+            <p class="tl__tag">Mid-game — Resistance</p>
+            <h3 class="tl__title">Security, radios, armed civilians</h3>
+            <p>Bigger waves. Tougher types: guards who walk in pairs, residents who carry. Panic decays faster, timers shrink, groups hold together longer.</p>
+          </div>
+        </li>
+        <li class="tl tl--police reveal">
+          <div class="tl__node" aria-hidden="true"></div>
+          <div class="tl__body">
+            <p class="tl__tag">Late game — Police response</p>
+            <h3 class="tl__title">They bring warrants and rifles</h3>
+            <p>Professionals arrive who treat your aesthetics as evidence. They photograph, bag, and study everything you so carefully arranged.</p>
+          </div>
+        </li>
+        <li class="tl tl--fail reveal">
+          <div class="tl__node" aria-hidden="true"></div>
+          <div class="tl__body">
+            <p class="tl__tag">Fail state — The Return</p>
+            <h3 class="tl__title">Too many escape. They come back armed.</h3>
+            <p>Let humans leave at critical panic and they leave traumatized — and armed. They return with your floor plans, your habits, your name in a file.</p>
+          </div>
+        </li>
+        <li class="tl tl--boss reveal">
+          <div class="tl__node" aria-hidden="true"></div>
+          <div class="tl__body">
+            <p class="tl__tag"><span class="tl__boss-tag">Final boss</span> — The Reckoning</p>
+            <h3 class="tl__title">Everyone you let go comes back at once</h3>
+            <p>Every escape you allowed becomes one rifle in one room. An organized, coordinated strike team — fighting you simultaneously, in your building, on your floor.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg-raised);--to:var(--bg)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 6. FEATURES ============ -->
+  <section class="section section--features" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">05</span> Features</p>
+      <h2 class="section-title reveal" id="features-title">What you get <span class="t-red">behind the walls.</span></h2>
+
+      <ul class="features">
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-pov"/></svg>
+          <h3 class="feature__title">First-person monster movement</h3>
+          <p>No victim stamina. No hiding in lockers. You move like something that owns the dark — fast, silent, vertical, patient.</p>
+        </li>
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-hand"/></svg>
+          <h3 class="feature__title">The Evidence System</h3>
+          <p>Plant disturbing "aesthetics" — drag-marks, handprints, torn fabric, feathers, scorch marks, scratched messages — exactly where they'll do the most damage.</p>
+        </li>
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-pulse"/></svg>
+          <h3 class="feature__title">Dynamic panic AI</h3>
+          <p>Every human carries a personal Panic Meter: calm crowds, jittery split-ups, critical flight. Groups react to each other and to what they find.</p>
+        </li>
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-bell"/></svg>
+          <h3 class="feature__title">Noise &amp; jump-scare toolkit</h3>
+          <p>Lures that pull them where you want them. Stalk mechanics to close distance. Jump scares that shatter a jittery nerve — then you feed.</p>
+        </li>
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-stairs"/></svg>
+          <h3 class="feature__title">Escalating difficulty</h3>
+          <p>More humans per wave. Faster panic decay. Security and armed civilians. Tighter timers. And eventually, the police response.</p>
+        </li>
+        <li class="feature reveal">
+          <svg class="feature__icon" aria-hidden="true" width="26" height="26"><use href="#i-crowd"/></svg>
+          <h3 class="feature__title">The boss finale</h3>
+          <p>The building keeps score. Everyone you failed to keep inside returns together, armed and organized, for one simultaneous fight.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg);--to:var(--bg-deep)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 7. MEDIA ============ -->
+  <section class="section section--media" id="media" aria-labelledby="media-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">06</span> Media</p>
+      <h2 class="section-title reveal" id="media-title">Proof of <span class="t-red">what happened here.</span></h2>
+
+      <!-- TRAILER PLACEHOLDER
+           To embed YouTube directly, replace the <figure> below with:
+           <div class="trailer" style="position:relative;padding-top:56.25%">
+             <iframe title="DEXANGEL official trailer" src="https://www.youtube-nocookie.com/embed/[TRAILER_ID]?rel=0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+               allowfullscreen loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+           </div>
+           (Keep the poster+link version for offline/perf — the iframe then only loads on demand.) -->
+      <figure class="trailer reveal">
+        <a class="trailer__link" href="[YOUTUBE_TRAILER_URL]" target="_blank" rel="noopener noreferrer">
+          <img class="trailer__poster" src="assets/placeholder-trailer.svg" alt="Trailer placeholder: a black corridor lit by a single amber lamp, with a dark shape at the far end." width="1920" height="1080" loading="lazy" decoding="async">
+          <span class="trailer__play" aria-hidden="true">
+            <svg width="30" height="30"><use href="#i-play"/></svg>
+          </span>
+          <span class="trailer__caption">Watch the announce trailer <span class="t-dim">(placeholder link)</span></span>
+        </a>
+      </figure>
+
+      <h3 class="h-small media__shots-title reveal">Screenshots — placeholder art, replace before launch</h3>
+
+      <ul class="shots">
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-01-corridor.svg" data-caption="Level 01 — the quiet floor. Nothing has happened here yet.">
+              <img src="assets/screenshot-01-corridor.svg" alt="Screenshot placeholder: a dark one-point-perspective corridor with flickering ceiling lamps and a closed door at the end." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>Level 01 — the quiet floor. Nothing has happened here yet.</figcaption>
+          </figure>
+        </li>
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-02-evidence.svg" data-caption="Evidence on floor 6. Someone is going to find it — that's the point.">
+              <img src="assets/screenshot-02-evidence.svg" alt="Screenshot placeholder: blood drag-marks, a smeared handprint and scattered feathers on a dark floor, with the words GET OUT scratched into the boards." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>Evidence on floor 6. Someone is going to find it — that's the point.</figcaption>
+          </figure>
+        </li>
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-03-panic.svg" data-caption="They split up. They always split up in the sweet spot.">
+              <img src="assets/screenshot-03-panic.svg" alt="Screenshot placeholder: three panicked human silhouettes with shaking flashlight beams standing in a doorway." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>They split up. They always split up in the sweet spot.</figcaption>
+          </figure>
+        </li>
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-04-stalk.svg" data-caption="Stairwell B. You hear everything they say about you.">
+              <img src="assets/screenshot-04-stalk.svg" alt="Screenshot placeholder: a spiral stairwell seen from above with a lone figure descending, lit by weak red light." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>Stairwell B. You hear everything they say about you.</figcaption>
+          </figure>
+        </li>
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-05-police.svg" data-caption="Police response. They photograph your work before they enter.">
+              <img src="assets/screenshot-05-police.svg" alt="Screenshot placeholder: two slate-blue police silhouettes breaching a doorway with hard flashlight beams and flashing lights." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>Police response. They photograph your work before they enter.</figcaption>
+          </figure>
+        </li>
+        <li class="shot reveal">
+          <figure>
+            <button class="shot__btn" type="button" data-full="assets/screenshot-06-boss.svg" data-caption="The Reckoning — everyone you let go, back at once, armed and organized.">
+              <img src="assets/screenshot-06-boss.svg" alt="Screenshot placeholder: a line of armed human silhouettes advancing through smoke with muzzle flashes, seen from the monster's low viewpoint." width="1600" height="900" loading="lazy" decoding="async">
+            </button>
+            <figcaption>The Reckoning — everyone you let go, back at once, armed and organized.</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg-deep);--to:var(--bg-raised)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 8. ROADMAP ============ -->
+  <section class="section section--roadmap" id="roadmap" aria-labelledby="roadmap-title">
+    <div class="wrap">
+      <p class="kicker reveal"><span class="kicker__num">07</span> Roadmap</p>
+      <h2 class="section-title reveal" id="roadmap-title">The building <span class="t-amber">opens in stages.</span></h2>
+
+      <ol class="roadmap">
+        <li class="road reveal" data-status="done">
+          <p class="road__status"><svg aria-hidden="true" width="14" height="14"><use href="#i-check"/></svg> Done</p>
+          <h3 class="road__title">Prototype</h3>
+          <p>Movement, trace-planting and the first panic reactions running on one grey-box floor.</p>
+        </li>
+        <li class="road reveal" data-status="active">
+          <p class="road__status">In progress</p>
+          <h3 class="road__title">Vertical slice</h3>
+          <p>One full tower. Three human types. The sweet-spot hunt tuned until it sings.</p>
+        </li>
+        <li class="road road--playtest reveal" data-status="next">
+          <p class="road__status">Next</p>
+          <h3 class="road__title">Closed playtest</h3>
+          <p>Small. Unglified. Brutally honest. Keys go to the list first.</p>
+
+          <!-- BACKEND HOOK-UP: this form is front-end only right now. -->
+          <form class="signup signup--compact" data-signup novalidate>
+            <label class="signup__label" for="email-playtest">Get playtest keys</label>
+            <div class="signup__row">
+              <input class="signup__input" type="email" id="email-playtest" name="email" inputmode="email"
+                     autocomplete="email" placeholder="you@domain.com" required
+                     aria-describedby="email-playtest-hint">
+              <button class="btn btn--amber btn--sm" type="submit">Join list</button>
+            </div>
+            <p class="signup__hint" id="email-playtest-hint">Front-end only — see setup notes to connect your provider.</p>
+            <p class="signup__status" role="status" data-signup-status></p>
+          </form>
+        </li>
+        <li class="road reveal" data-status="planned">
+          <p class="road__status">Planned</p>
+          <h3 class="road__title">Early Access</h3>
+          <p>More floors, more human types, more reasons for them to scream in groups.</p>
+        </li>
+        <li class="road reveal" data-status="planned">
+          <p class="road__status">Planned</p>
+          <h3 class="road__title">1.0</h3>
+          <p>The Return. The full finale. The building remembers everyone you let go.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider" style="--from:var(--bg-raised);--to:var(--bg)" aria-hidden="true">
+    <svg class="divider__svg" viewBox="0 0 1440 72" preserveAspectRatio="none"><use href="#i-drip"/></svg>
+  </div>
+
+  <!-- ============ 9. FINAL CTA ============ -->
+  <section class="section section--cta" id="signup" aria-labelledby="cta-title">
+    <div class="wrap cta">
+      <p class="kicker reveal"><span class="kicker__num">08</span> Enter</p>
+      <h2 class="cta__title reveal" id="cta-title">Hold the door.<br><span class="t-red">Let nobody leave with the truth.</span></h2>
+      <p class="section-lede reveal">One wishlist tells Steam this building deserves a crowd. One email gets you playtest keys before the doors open to anyone else.</p>
+
+      <div class="cta__primary reveal">
+        <a class="btn btn--primary btn--xl" href="[STEAM_WISHLIST_URL]">Wishlist DEXANGEL on Steam</a>
+        <a class="btn btn--ghost btn--lg" href="[DISCORD_INVITE]">Join the Discord</a>
+      </div>
+
+      <!-- BACKEND HOOK-UP #2 (same handler as the playtest form). -->
+      <form class="signup signup--big reveal" data-signup novalidate>
+        <label class="signup__label" for="email-cta">Playtest keys &amp; dev letters</label>
+        <div class="signup__row">
+          <input class="signup__input" type="email" id="email-cta" name="email" inputmode="email"
+                 autocomplete="email" placeholder="you@domain.com" required aria-describedby="email-cta-hint">
+          <button class="btn btn--primary" type="submit">Sign me up</button>
+        </div>
+        <p class="signup__hint" id="email-cta-hint">No spam. Only evidence. Unsubscribe with one click.</p>
+        <p class="signup__status" role="status" data-signup-status></p>
+      </form>
+
+      <p class="cta__press reveal">Press &amp; content creators: <a href="[PRESS_KIT_URL]">open the press kit</a> — assets, stills, factsheet, contact.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 10. FOOTER ============ -->
+<footer class="footer" aria-labelledby="footer-title">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/logo-dexangel.svg" alt="DEXANGEL wordmark — placeholder logo" width="800" height="200" loading="lazy" decoding="async">
+      <p class="footer__tag" id="footer-title">Reverse horror. <span class="t-red">You are the monster.</span></p>
+      <p class="footer__studio">[STUDIO_NAME] · <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a></p>
+    </div>
+
+    <nav class="footer__col" aria-label="Footer">
+      <h3 class="footer__h">The building</h3>
+      <ul>
+        <li><a href="#premise">Premise</a></li>
+        <li><a href="#panic">Panic system</a></li>
+        <li><a href="#hunt">Hunt loop</a></li>
+        <li><a href="#escalation">Escalation</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer__col" aria-label="Elsewhere">
+      <h3 class="footer__h">Elsewhere</h3>
+      <ul>
+        <li><a href="[STEAM_WISHLIST_URL]">Steam wishlist</a></li>
+        <li><a href="[DISCORD_INVITE]">Discord</a></li>
+        <li><a href="[TWITTER_URL]">Twitter / X</a></li>
+        <li><a href="[YOUTUBE_TRAILER_URL]">YouTube</a></li>
+        <li><a href="[PRESS_KIT_URL]">Press kit</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h3 class="footer__h">Legal</h3>
+      <ul>
+        <li><a href="[PRIVACY_URL]">Privacy policy</a></li>
+        <li><a href="[TERMS_URL]">Terms</a></li>
+        <li><a href="#main">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer__base">
+    <p>© <span id="year">2026</span> [STUDIO_NAME]. All rights reserved. Fictional game; no real persons depicted.</p>
+    <p class="footer__malice">Made with malice.</p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<dialog class="lightbox" id="lightbox" aria-label="Screenshot viewer">
+  <div class="lightbox__frame">
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+  </div>
+  <button class="lightbox__btn lightbox__btn--prev" id="lightbox-prev" type="button" aria-label="Previous screenshot">
+    <svg aria-hidden="true" width="24" height="24"><use href="#i-left"/></svg>
+  </button>
+  <button class="lightbox__btn lightbox__btn--next" id="lightbox-next" type="button" aria-label="Next screenshot">
+    <svg aria-hidden="true" width="24" height="24"><use href="#i-right"/></svg>
+  </button>
+  <button class="lightbox__btn lightbox__btn--close" id="lightbox-close" type="button" aria-label="Close screenshot viewer">
+    <svg aria-hidden="true" width="22" height="22"><use href="#i-close"/></svg>
+  </button>
+</dialog>
+
+<!-- ============ DEV ROOM (easter egg: click the floor number 5 times) ============ -->
+<dialog class="dialog devroom" id="devroom" aria-labelledby="devroom-title">
+  <div class="dialog__head">
+    <p class="dialog__eyebrow">Floor 18 — not on any blueprint</p>
+    <h2 class="dialog__title" id="devroom-title">Dev room</h2>
+  </div>
+  <div class="dialog__body">
+    <p>You found the floor the caretakers bricked up. It's where we keep the unfinished scares.</p>
+    <ul class="devroom__list">
+      <li><strong>Easter egg I:</strong> the floor readout in the nav. Five clicks gets you here.</li>
+      <li><strong>Easter egg II:</strong> the handprint in the hero. Click it once. It doesn't loop.</li>
+      <li><strong>Sound toggle:</strong> button only — no audio file ships with this build. Hook a muted-by-default <code>Audio</code> element to <code>#sound-toggle</code> when you have stems.</li>
+      <li><strong>Placeholders:</strong> every image, link and email on this page is a clearly bracketed or named placeholder. See <code>SETUP.md</code>.</li>
+    </ul>
+    <p class="devroom__lore">“The building has 18 floors. Records stop at 17.”</p>
+  </div>
+  <button class="btn btn--ghost btn--sm dialog__close" type="button" data-close-dialog>Leave the floor</button>
+</dialog>
+
+<!-- ============ JUMP-SCARE EASTER EGG (visual flicker only, never auto-triggered) ============ -->
+<div class="scare" id="scare" hidden aria-hidden="true">
+  <svg class="scare__maw" viewBox="0 0 400 400" aria-hidden="true"><use href="#i-maw"/></svg>
+</div>
+
+<script src="js/main.js?v=1.2" defer></script>
+</body>
+</html>

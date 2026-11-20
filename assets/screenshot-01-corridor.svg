@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Placeholder screenshot: a dark corridor with flickering ceiling lamps, a red smear across the floor and a bloody handprint on the right wall.">
+  <defs>
+    <linearGradient id="s1bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151011"/>
+      <stop offset="1" stop-color="#070506"/>
+    </linearGradient>
+    <linearGradient id="s1lamp" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffeec4" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="s1vig" cx=".5" cy=".5" r=".7">
+      <stop offset=".38" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".9"/>
+    </radialGradient>
+    <filter id="s1noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="s1soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#s1bg)"/>
+
+  <!-- perspective shell -->
+  <polygon points="0,0 1600,0 980,250 620,250" fill="#120d0e"/>
+  <polygon points="0,900 1600,900 980,650 620,650" fill="#0d0a0a"/>
+  <polygon points="0,0 620,250 620,650 0,900" fill="#0f0b0c"/>
+  <polygon points="1600,0 980,250 980,650 1600,900" fill="#0b0809"/>
+
+  <!-- far door, light leaking around it -->
+  <rect x="620" y="250" width="360" height="400" fill="#0a0708"/>
+  <rect x="742" y="330" width="126" height="320" fill="#040303"/>
+  <rect x="745" y="334" width="6" height="316" fill="#ffb703" opacity=".5"/>
+  <rect x="862" y="334" width="5" height="316" fill="#ffb703" opacity=".35"/>
+  <ellipse cx="805" cy="655" rx="140" ry="30" fill="#ffb703" opacity=".08" filter="url(#s1soft)"/>
+
+  <!-- ceiling lamps -->
+  <polygon points="470,55 1130,55 1060,150 540,150" fill="url(#s1lamp)" opacity=".85"/>
+  <ellipse cx="800" cy="155" rx="330" ry="60" fill="#ffb703" opacity=".1" filter="url(#s1soft)"/>
+  <polygon points="655,190 945,190 918,240 682,240" fill="url(#s1lamp)" opacity=".6"/>
+  <polygon points="742,272 858,272 848,305 752,305" fill="url(#s1lamp)" opacity=".4"/>
+
+  <!-- floor boards -->
+  <g stroke="#1d1617" stroke-width="3">
+    <path d="M0 900 620 650M1600 900 980 650M330 900 690 650M1270 900 910 650"/>
+    <path d="M0 792h1600"/>
+  </g>
+
+  <!-- red drag smear -->
+  <path d="M330 878C470 838 610 792 720 738l52 30C660 826 520 878 380 900z" fill="#c1121f" opacity=".38"/>
+  <path d="M395 873C520 836 640 795 730 750l22 14C665 812 545 862 425 890z" fill="#8f0d17" opacity=".55"/>
+  <g fill="#8f0d17" opacity=".7">
+    <ellipse cx="770" cy="742" rx="26" ry="14" transform="rotate(-24 770 742)"/>
+    <ellipse cx="300" cy="884" rx="34" ry="15" transform="rotate(-14 300 884)"/>
+  </g>
+
+  <!-- handprint, right wall -->
+  <g fill="#c1121f" opacity=".62" transform="translate(1255 400) rotate(-9)">
+    <ellipse cx="0" cy="20" rx="31" ry="35"/>
+    <rect x="-25" y="-42" width="13" height="46" rx="6.5"/>
+    <rect x="-8" y="-56" width="13" height="60" rx="6.5"/>
+    <rect x="9" y="-49" width="13" height="53" rx="6.5"/>
+    <rect x="25" y="-34" width="12" height="40" rx="6"/>
+    <rect x="-42" y="-4" width="12" height="32" rx="6" transform="rotate(-32 -42 -4)"/>
+  </g>
+  <g fill="#c1121f" opacity=".35" transform="translate(1352 560) rotate(14) scale(.62)">
+    <ellipse cx="0" cy="20" rx="31" ry="35"/>
+    <rect x="-25" y="-42" width="13" height="46" rx="6.5"/>
+    <rect x="-8" y="-56" width="13" height="60" rx="6.5"/>
+    <rect x="9" y="-49" width="13" height="53" rx="6.5"/>
+    <rect x="25" y="-34" width="12" height="40" rx="6"/>
+  </g>
+
+  <!-- torn fabric on the left wall -->
+  <path d="M120 330l70-24 44 46-30 58-72 8-30-50z" fill="#2a2224" opacity=".8"/>
+  <path d="M132 400l24 66 18-56 22 62 14-72" fill="none" stroke="#2a2224" stroke-width="7" opacity=".7"/>
+
+  <rect width="1600" height="900" filter="url(#s1noise)" opacity=".1"/>
+  <rect width="1600" height="900" fill="url(#s1vig)"/>
+  <text x="1560" y="866" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="3" fill="#a39d94" opacity=".65">PLACEHOLDER 1600×900 · screenshot-01-corridor</text>
+</svg>

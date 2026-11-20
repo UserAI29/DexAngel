@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Placeholder boss screenshot: an armed strike team of human silhouettes advancing through smoke with muzzle flashes, seen from the monster's low viewpoint.">
+  <defs>
+    <linearGradient id="s6bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1113"/>
+      <stop offset=".55" stop-color="#0d0809"/>
+      <stop offset="1" stop-color="#060405"/>
+    </linearGradient>
+    <radialGradient id="s6fire" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd166" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="s6vig" cx=".5" cy=".55" r=".7">
+      <stop offset=".32" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".94"/>
+    </radialGradient>
+    <filter id="s6noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="s6soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="s6smoke" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="46"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#s6bg)"/>
+
+  <!-- back-lit haze -->
+  <ellipse cx="800" cy="330" rx="640" ry="290" fill="#c1121f" opacity=".16" filter="url(#s6soft)"/>
+  <ellipse cx="800" cy="420" rx="420" ry="200" fill="#ffb703" opacity=".1" filter="url(#s6soft)"/>
+
+  <!-- smoke banks -->
+  <g filter="url(#s6smoke)" fill="#2b2224" opacity=".6">
+    <ellipse cx="330" cy="620" rx="330" ry="130"/>
+    <ellipse cx="1240" cy="600" rx="360" ry="140"/>
+    <ellipse cx="800" cy="700" rx="480" ry="150"/>
+  </g>
+
+  <!-- floor (monster's low viewpoint) -->
+  <rect y="700" width="1600" height="200" fill="#070506"/>
+  <path d="M0 700h1600" stroke="#241b1d" stroke-width="5"/>
+  <g stroke="#150f10" stroke-width="4">
+    <path d="M160 900L620 700M1440 900L980 700M760 900L790 700"/>
+  </g>
+
+  <!-- the strike team: five armed silhouettes -->
+  <g fill="#040303">
+    <!-- far left -->
+    <g transform="translate(300 520) scale(.86)">
+      <circle cy="-168" r="42"/>
+      <path d="M-74 240c0-140 30-196 74-204 44 8 74 64 74 204z"/>
+      <path d="M-70 -80l-96 60M70 -76l96 56" stroke="#040303" stroke-width="30" stroke-linecap="round"/>
+      <rect x="-136" y="-56" width="272" height="20" rx="6" transform="rotate(10)"/>
+    </g>
+    <!-- left -->
+    <g transform="translate(560 490) scale(.97)">
+      <circle cy="-170" r="44"/>
+      <path d="M-76 246c0-144 32-200 76-208 44 8 76 64 76 208z"/>
+      <path d="M-72 -78l-104 44M72 -74l104 40" stroke="#040303" stroke-width="32" stroke-linecap="round"/>
+      <rect x="-150" y="-56" width="300" height="22" rx="6" transform="rotate(7)"/>
+    </g>
+    <!-- center (closest) -->
+    <g transform="translate(830 460) scale(1.1)">
+      <circle cy="-172" r="46"/>
+      <path d="M-80 250c0-148 34-206 80-214 46 8 80 66 80 214z"/>
+      <path d="M-76 -76l-110 40M76 -72l110 36" stroke="#040303" stroke-width="34" stroke-linecap="round"/>
+      <rect x="-160" y="-54" width="320" height="24" rx="6" transform="rotate(5)"/>
+    </g>
+    <!-- right -->
+    <g transform="translate(1110 495) scale(.95)">
+      <circle cy="-168" r="43"/>
+      <path d="M-74 244c0-142 30-198 74-206 44 8 74 64 74 206z"/>
+      <path d="M-70 -78l-100 48M70 -74l100 44" stroke="#040303" stroke-width="31" stroke-linecap="round"/>
+      <rect x="-144" y="-56" width="288" height="21" rx="6" transform="rotate(9)"/>
+    </g>
+    <!-- far right -->
+    <g transform="translate(1355 525) scale(.84)">
+      <circle cy="-166" r="41"/>
+      <path d="M-72 238c0-138 28-194 72-202 44 8 72 64 72 202z"/>
+      <path d="M-68 -78l-92 56M68 -74l92 52" stroke="#040303" stroke-width="29" stroke-linecap="round"/>
+      <rect x="-130" y="-54" width="260" height="19" rx="6" transform="rotate(11)"/>
+    </g>
+  </g>
+
+  <!-- rim light on the team -->
+  <g fill="none" stroke="#ffb703" stroke-width="4" opacity=".45">
+    <path d="M742 268c8-30 46-30 56 0"/>
+    <path d="M476 300c8-26 44-26 54 0"/>
+    <path d="M1030 306c8-27 45-27 54 0"/>
+  </g>
+
+  <!-- muzzle flashes -->
+  <g>
+    <circle cx="160" cy="470" r="72" fill="url(#s6fire)" filter="url(#s6soft)"/>
+    <path d="M160 424l16 30 34-10-20 32 32 16-36 6 6 36-28-24-24 28 2-36-36 2 26-26-26-24 36 4z" fill="#ffd166"/>
+    <circle cx="1444" cy="506" r="58" fill="url(#s6fire)" filter="url(#s6soft)"/>
+    <path d="M1444 470l12 24 27-8-16 25 25 13-28 5 5 28-22-19-19 22 2-28-28 2 20-20-20-19 28 3z" fill="#ffd166"/>
+  </g>
+
+  <!-- ejected shell casings -->
+  <g fill="#ffb703" opacity=".8">
+    <rect x="470" y="600" width="26" height="12" rx="5" transform="rotate(28 483 606)"/>
+    <rect x="1180" y="640" width="24" height="11" rx="5" transform="rotate(-34 1192 646)"/>
+  </g>
+
+  <!-- ash falling -->
+  <g fill="#e8e2d9" opacity=".45">
+    <circle cx="240" cy="240" r="4"/><circle cx="520" cy="170" r="3"/><circle cx="700" cy="260" r="4"/>
+    <circle cx="980" cy="150" r="3"/><circle cx="1240" cy="250" r="4"/><circle cx="1440" cy="180" r="3"/>
+    <circle cx="380" cy="360" r="3"/><circle cx="1120" cy="330" r="3"/>
+  </g>
+
+  <rect width="1600" height="900" filter="url(#s6noise)" opacity=".1"/>
+  <rect width="1600" height="900" fill="url(#s6vig)"/>
+  <text x="1560" y="866" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="3" fill="#a39d94" opacity=".65">PLACEHOLDER 1600×900 · screenshot-06-boss</text>
+</svg>

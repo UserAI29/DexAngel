@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Placeholder screenshot: cold slate-blue police officers breaching a doorway with hard flashlight beams and flashing lights.">
+  <defs>
+    <linearGradient id="s5bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1116"/>
+      <stop offset="1" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="s5beam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcebf7" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#dcebf7" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="s5vig" cx=".5" cy=".5" r=".7">
+      <stop offset=".36" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".92"/>
+    </radialGradient>
+    <filter id="s5noise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="s5soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="34"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#s5bg)"/>
+
+  <!-- corridor -->
+  <polygon points="0,0 1600,0 1600,900 0,900" fill="#0a0d11"/>
+  <rect y="660" width="1600" height="240" fill="#070a0d"/>
+  <path d="M0 660h1600" stroke="#182029" stroke-width="4"/>
+
+  <!-- breach point -->
+  <rect x="560" y="80" width="520" height="600" fill="#0d1319"/>
+  <rect x="600" y="120" width="440" height="560" fill="#141d26"/>
+  <path d="M560 80h520v600H560z" fill="none" stroke="#22303c" stroke-width="10"/>
+  <path d="M840 120v560" stroke="#0a0d11" stroke-width="6"/>
+
+  <!-- flash lights -->
+  <g>
+    <ellipse cx="330" cy="170" rx="200" ry="130" fill="#c1121f" opacity=".3" filter="url(#s5soft)"/>
+    <ellipse cx="1290" cy="150" rx="200" ry="120" fill="#5b6b7a" opacity=".45" filter="url(#s5soft)"/>
+    <rect x="270" y="120" width="110" height="34" rx="8" fill="#c1121f" opacity=".85"/>
+    <rect x="1235" y="104" width="110" height="34" rx="8" fill="#8fb3d6" opacity=".85"/>
+  </g>
+
+  <!-- officer A (left, center frame) -->
+  <g transform="translate(600 470)">
+    <circle cx="0" cy="-176" r="46" fill="#04060a"/>
+    <path d="M-84 250c0-150 34-206 84-214 50 8 84 64 84 214z" fill="#04060a"/>
+    <rect x="-58" y="-60" width="116" height="52" rx="6" fill="#5b6b7a"/>
+    <text x="0" y="-24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" letter-spacing="4" fill="#dfe7ee">POLICE</text>
+    <path d="M70 -70l150 40" stroke="#04060a" stroke-width="30" stroke-linecap="round"/>
+    <path d="M214 -34l150 44" fill="url(#s5beam)"/>
+    <path d="M-6 -176c26 0 46 20 46 46" stroke="#7d93a8" stroke-width="5" fill="none" opacity=".65"/>
+  </g>
+
+  <!-- officer B (right, slightly behind) -->
+  <g transform="translate(1050 500) scale(.9)">
+    <circle cx="0" cy="-176" r="44" fill="#04060a"/>
+    <path d="M-80 250c0-146 32-202 80-210 48 8 80 64 80 210z" fill="#04060a"/>
+    <rect x="-54" y="-58" width="108" height="50" rx="6" fill="#5b6b7a"/>
+    <text x="0" y="-23" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" letter-spacing="4" fill="#dfe7ee">POLICE</text>
+    <path d="M-70 -70l-140 46" stroke="#04060a" stroke-width="28" stroke-linecap="round"/>
+    <path d="M-204 -30l-170 60" fill="url(#s5beam)"/>
+  </g>
+
+  <!-- evidence bag on the floor: one of your traces, catalogued -->
+  <g transform="translate(430 760) rotate(-6)">
+    <rect width="180" height="120" rx="8" fill="#cfe0ee" opacity=".16"/>
+    <rect width="180" height="120" rx="8" fill="none" stroke="#9fb0c0" stroke-width="4" opacity=".7"/>
+    <g fill="#c1121f" opacity=".8">
+      <ellipse cx="70" cy="66" rx="34" ry="20"/>
+      <ellipse cx="122" cy="86" rx="18" ry="11"/>
+    </g>
+    <rect x="24" y="10" width="86" height="26" rx="4" fill="#0a0d11" stroke="#9fb0c0" stroke-width="3"/>
+    <text x="67" y="30" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="2" fill="#dfe7ee">EXHIBIT A</text>
+  </g>
+
+  <!-- chalk outline of a drag path -->
+  <path d="M760 820C900 796 1040 780 1180 774" stroke="#9fb0c0" stroke-width="6" stroke-dasharray="26 20" fill="none" opacity=".55"/>
+
+  <rect width="1600" height="900" filter="url(#s5noise)" opacity=".1"/>
+  <rect width="1600" height="900" fill="url(#s5vig)"/>
+  <text x="1560" y="866" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="3" fill="#a39d94" opacity=".65">PLACEHOLDER 1600×900 · screenshot-05-police</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Placeholder trailer poster: a sealed door with amber light bleeding underneath, red scratch marks on the wall beside it.">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141011"/>
+      <stop offset="1" stop-color="#060405"/>
+    </linearGradient>
+    <linearGradient id="tunder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb703" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ffd98a" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="tspill" cx=".5" cy="1" r=".8">
+      <stop offset="0" stop-color="#ffb703" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#ffb703" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tvig" cx=".5" cy=".5" r=".72">
+      <stop offset=".4" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".92"/>
+    </radialGradient>
+    <filter id="tnoise" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="tsoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#tbg)"/>
+
+  <!-- wall panels -->
+  <g stroke="#1a1315" stroke-width="3">
+    <path d="M0 360h1920M0 720h1920M480 0v1080M1440 0v1080"/>
+  </g>
+
+  <!-- sealed door -->
+  <g>
+    <rect x="740" y="180" width="440" height="770" fill="#0d0a0b" stroke="#221a1c" stroke-width="6"/>
+    <rect x="780" y="230" width="360" height="660" fill="#0a0708" stroke="#1a1416" stroke-width="4"/>
+    <!-- planks -->
+    <g fill="#171213" stroke="#241b1d" stroke-width="3">
+      <rect x="756" y="330" width="410" height="58" transform="rotate(-5 961 359)"/>
+      <rect x="756" y="600" width="410" height="58" transform="rotate(4 961 629)"/>
+      <rect x="756" y="470" width="410" height="52" transform="rotate(-1 961 496)"/>
+    </g>
+    <!-- nails -->
+    <g fill="#3a3033">
+      <circle cx="800" cy="352" r="7"/><circle cx="1120" cy="330" r="7"/>
+      <circle cx="805" cy="632" r="7"/><circle cx="1115" cy="646" r="7"/>
+    </g>
+    <!-- light under the door -->
+    <rect x="742" y="944" width="436" height="16" fill="url(#tunder)"/>
+    <ellipse cx="960" cy="985" rx="360" ry="70" fill="url(#tspill)" filter="url(#tsoft)"/>
+  </g>
+
+  <!-- scratch marks -->
+  <g stroke="#c1121f" stroke-width="9" stroke-linecap="round" opacity=".72">
+    <path d="M420 300c40 90 55 190 48 300"/>
+    <path d="M470 285c44 92 60 195 52 305"/>
+    <path d="M520 275c40 96 56 200 48 312"/>
+    <path d="M568 300c34 84 46 176 40 270"/>
+  </g>
+  <g fill="#c1121f" opacity=".65">
+    <ellipse cx="1490" cy="520" rx="34" ry="40"/>
+    <rect x="1466" y="460" width="13" height="48" rx="6"/>
+    <rect x="1483" y="446" width="13" height="62" rx="6"/>
+    <rect x="1500" y="452" width="13" height="56" rx="6"/>
+    <rect x="1517" y="468" width="12" height="42" rx="6"/>
+    <rect x="1450" y="484" width="12" height="34" rx="6" transform="rotate(-28 1456 500)"/>
+  </g>
+
+  <!-- floor haze -->
+  <rect y="900" width="1920" height="180" fill="#040303" opacity=".7"/>
+
+  <rect width="1920" height="1080" filter="url(#tnoise)" opacity=".1"/>
+  <rect width="1920" height="1080" fill="url(#tvig)"/>
+  <text x="1876" y="1042" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="21" letter-spacing="4" fill="#a39d94" opacity=".6">PLACEHOLDER 1920×1080 · /assets/placeholder-trailer.svg</text>
+</svg>
